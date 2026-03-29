@@ -1,0 +1,13 @@
+{
+  "itemGroup.secretsofthearcane": "Example Mod Tab",
+  "block.secretsofthearcane.example_block": "Example Block",
+  "item.secretsofthearcane.example_item": "Example Item",
+
+  "secretsofthearcane.configuration.title": "Secrets of the Arcane Configs",
+  "secretsofthearcane.configuration.section.secretsofthearcane.common.toml": "Secrets of the Arcane Configs",
+  "secretsofthearcane.configuration.section.secretsofthearcane.common.toml.title": "Secrets of the Arcane Configs",
+  "secretsofthearcane.configuration.items": "Item List",
+  "secretsofthearcane.configuration.logDirtBlock": "Log Dirt Block",
+  "secretsofthearcane.configuration.magicNumberIntroduction": "Magic Number Text",
+  "secretsofthearcane.configuration.magicNumber": "Magic Number"
+}
