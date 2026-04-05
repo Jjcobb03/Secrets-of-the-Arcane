@@ -1,5 +1,6 @@
 package net.jjcobb03.secretsofthearcane;
 
+import net.jjcobb03.secretsofthearcane.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -75,6 +76,7 @@ public class SecretsOfTheArcane {
 
 //        // Register the Deferred Register to the mod event bus so blocks get registered
 //        BLOCKS.register(modEventBus);
+
 //        // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
 //        // Register the Deferred Register to the mod event bus so tabs get registered
@@ -84,6 +86,9 @@ public class SecretsOfTheArcane {
         // Note that this is necessary if and only if we want *this* class (SecretsoftheArcane) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        // Call the Deferred Register for Items from ModItems
+        ModItems.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -113,6 +118,10 @@ public class SecretsOfTheArcane {
 //        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
 //            event.accept(EXAMPLE_BLOCK_ITEM);
 //        }
+        // Add the test item to the Ingredients creative tab
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.TEST_ITEM);
+        }
     }
 
     // The tutorial I'm using has deleted the contents of this method

@@ -2,6 +2,7 @@
   "itemGroup.secretsofthearcane": "Example Mod Tab",
   "block.secretsofthearcane.example_block": "Example Block",
   "item.secretsofthearcane.example_item": "Example Item",
+  "item.secretsofthearcane.test_item": "Test Item",
 
   "secretsofthearcane.configuration.title": "Secrets of the Arcane Configs",
   "secretsofthearcane.configuration.section.secretsofthearcane.common.toml": "Secrets of the Arcane Configs",
