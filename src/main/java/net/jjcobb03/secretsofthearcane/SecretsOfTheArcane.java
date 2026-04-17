@@ -1,6 +1,7 @@
 package net.jjcobb03.secretsofthearcane;
 
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
+import net.jjcobb03.secretsofthearcane.item.ModCreativeModeTabs;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
 import org.slf4j.Logger;
 
@@ -73,6 +74,8 @@ public class SecretsOfTheArcane {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        // Call the Deferred Register for CreativeModeTabs from ModCreativeModeTabs
+        ModCreativeModeTabs.register(modEventBus);
         // Call the Deferred Register for Items from ModItems
         ModItems.register(modEventBus);
         // Call the Deferred Register for Blocks from ModBlocks
@@ -112,7 +115,7 @@ public class SecretsOfTheArcane {
         }
 
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.ROWANLOG);
+            event.accept(ModBlocks.ROWAN_LOG);
         }
     }
 

@@ -19,7 +19,7 @@ public class ModBlocks {
             DeferredRegister.createBlocks(SecretsOfTheArcane.MOD_ID);
 
     // Custom blocks to register
-    public static final DeferredBlock<Block> ROWANLOG = registerBlock("rowan_log",
+    public static final DeferredBlock<Block> ROWAN_LOG = registerBlock("rowan_log",
             () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
 
     // Registers the Block and the BlockItem

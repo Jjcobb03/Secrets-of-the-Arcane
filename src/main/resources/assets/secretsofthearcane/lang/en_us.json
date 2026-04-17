@@ -1,7 +1,11 @@
 {
   "itemGroup.secretsofthearcane": "Example Mod Tab",
+
   "item.secretsofthearcane.test_item": "Test Item",
+
   "block.secretsofthearcane.rowan_log": "Rowan Log",
+  "creativetab.secretsofthearcane.secrets_of_the_arcane": "Secrets of the Arcane",
+  "creativetab.secretsofthearcane.secrets_of_the_arcane_2": "2nd Test Tab",
 
   "secretsofthearcane.configuration.title": "Secrets of the Arcane Configs",
   "secretsofthearcane.configuration.section.secretsofthearcane.common.toml": "Secrets of the Arcane Configs",
