@@ -5,6 +5,7 @@ import net.jjcobb03.secretsofthearcane.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
@@ -22,7 +23,7 @@ public class ModBlocks {
 
     // Rowan wood set
     public static final DeferredBlock<Block> ROWAN_LOG = registerBlock("rowan_log",
-            () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> ROWAN_PLANKS = registerBlock("rowan_planks",
             () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
 

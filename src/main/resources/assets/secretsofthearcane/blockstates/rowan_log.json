@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "secretsofthearcane:block/rowan_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "secretsofthearcane:block/rowan_log"
+    },
+    "axis=z": {
+      "model": "secretsofthearcane:block/rowan_log_horizontal",
+      "x": 90
     }
   }
 }
