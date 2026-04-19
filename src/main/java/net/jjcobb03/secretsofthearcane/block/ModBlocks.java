@@ -21,6 +21,8 @@ public class ModBlocks {
     // Custom blocks to register
     public static final DeferredBlock<Block> ROWAN_LOG = registerBlock("rowan_log",
             () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> ROWAN_PLANKS = registerBlock("rowan_planks",
+            () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
 
     // Registers the Block and the BlockItem
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

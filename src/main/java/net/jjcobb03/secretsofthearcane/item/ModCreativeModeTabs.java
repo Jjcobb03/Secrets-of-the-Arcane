@@ -29,6 +29,8 @@ public class ModCreativeModeTabs {
                             .displayItems((itemDisplayParameters, output) -> {
                                 // Items that will display in this tab
                                 output.accept(ModItems.TEST_ITEM);
+                                output.accept(ModBlocks.ROWAN_LOG);
+                                output.accept(ModBlocks.ROWAN_PLANKS);
                             }).build());
 
     public static final Supplier<CreativeModeTab> SECRETS_OF_THE_ARCANE_TAB_2 =

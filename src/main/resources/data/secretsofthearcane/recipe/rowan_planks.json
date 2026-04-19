@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "secretsofthearcane:rowan_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "secretsofthearcane:rowan_planks"
+  }
+}
