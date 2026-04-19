@@ -31,6 +31,9 @@ public class ModCreativeModeTabs {
                                 output.accept(ModItems.TEST_ITEM);
                                 output.accept(ModBlocks.ROWAN_LOG);
                                 output.accept(ModBlocks.ROWAN_PLANKS);
+                                output.accept(ModBlocks.TERRA_ORE);
+                                output.accept(ModBlocks.TERRA_DEEPSLATE_ORE);
+                                output.accept(ModItems.VIS_CRYSTAL);
                             }).build());
 
     public static final Supplier<CreativeModeTab> SECRETS_OF_THE_ARCANE_TAB_2 =
