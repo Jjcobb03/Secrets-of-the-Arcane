@@ -15,6 +15,9 @@ public class ModItems {
     public static final DeferredItem<Item> TEST_ITEM = ITEMS.register("test_item",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> VIS_CRYSTAL = ITEMS.register("vis_crystal",
+            () -> new Item(new Item.Properties()));
+
     // Register the Deferred Register to the mod event bus so items get registered
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

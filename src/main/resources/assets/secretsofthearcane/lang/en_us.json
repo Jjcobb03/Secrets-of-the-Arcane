@@ -2,9 +2,13 @@
   "itemGroup.secretsofthearcane": "Example Mod Tab",
 
   "item.secretsofthearcane.test_item": "Test Item",
+  "item.secretsofthearcane.vis_crystal": "Vis Crystal",
 
   "block.secretsofthearcane.rowan_log": "Rowan Log",
   "block.secretsofthearcane.rowan_planks": "Rowan Planks",
+  "block.secretsofthearcane.terra_ore": "Terra Ore",
+  "block.secretsofthearcane.terra_deepslate_ore": "Terra Deepslate Ore",
+
   "creativetab.secretsofthearcane.secrets_of_the_arcane": "Secrets of the Arcane",
   "creativetab.secretsofthearcane.secrets_of_the_arcane_2": "2nd Test Tab",
 

@@ -19,10 +19,18 @@ public class ModBlocks {
             DeferredRegister.createBlocks(SecretsOfTheArcane.MOD_ID);
 
     // Custom blocks to register
+
+    // Rowan wood set
     public static final DeferredBlock<Block> ROWAN_LOG = registerBlock("rowan_log",
             () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> ROWAN_PLANKS = registerBlock("rowan_planks",
             () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
+
+    // Vis Crystals
+    public static final DeferredBlock<Block> TERRA_ORE = registerBlock("terra_ore",
+            () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(1f).sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> TERRA_DEEPSLATE_ORE = registerBlock("terra_deepslate_ore",
+            () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(1f).sound(SoundType.DEEPSLATE)));
 
     // Registers the Block and the BlockItem
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
