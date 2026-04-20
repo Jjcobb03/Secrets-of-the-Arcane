@@ -40,7 +40,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ROWAN_PLANKS.get());
 
         // Blocks that drop a different item from themselves (EX: Ores)
-        // Drops a single crustal
+        // Drops a single crystal
         add(ModBlocks.TERRA_ORE.get(),
                 block -> createOreDrop(ModBlocks.TERRA_ORE.get(), ModItems.VIS_CRYSTAL.get()));
         // Drops 1-3 crystals
@@ -53,10 +53,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     /**
      * Helper method from Kaupenjoe's datagen tutorial
-     * @param pBlock The block being mined
-     * @param item The item that should be dropped
-     * @param minDrops The minimum amount of drops this should provide
-     * @param maxDrops The maximum amount of drops this can provide
+     * @param pBlock - The block being mined
+     * @param item - The item that should be dropped
+     * @param minDrops - The minimum amount of drops this should provide
+     * @param maxDrops - The maximum amount of drops this can provide
      * @return A LootTable.Builder. Honestly not entirely sure what exactly that does
      */
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
@@ -67,7 +67,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                         .apply(ApplyBonusCount.addOreBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE)))));
     }
 
-    // Get a list of all the blocks on the BLOCKS DeferredRegister
+    /**
+     * Gets a list of all blocks on the BLOCKS DeferredRegister.
+     * Every block on the register needs a loot table unless created with .noLootTable()
+     *
+     * @return every block on the BLOCKS DeferredRegister as an Iterable<Block>
+     */
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;

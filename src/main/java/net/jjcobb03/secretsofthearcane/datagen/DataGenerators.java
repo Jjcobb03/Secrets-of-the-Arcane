@@ -16,9 +16,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-// Tutorial has this written as below, but the ommited part has been labeled deprecated
-// @EventBusSubscriber(modid = SecretsOfTheArcane.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
-
+/**
+ * Generates .json files for various aspects of the mod
+ */
 @EventBusSubscriber(modid = SecretsOfTheArcane.MOD_ID)
 public class DataGenerators {
 

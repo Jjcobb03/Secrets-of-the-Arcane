@@ -31,5 +31,13 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TERRA_ORE.get())
                 .add(ModBlocks.TERRA_DEEPSLATE_ORE.get());
 
+        // Blocks that are best harvested with an axe
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(ModBlocks.ROWAN_LOG.get())
+                .add(ModBlocks.ROWAN_PLANKS.get());
+
+        tag(BlockTags.LOGS)
+                .add(ModBlocks.ROWAN_LOG.get());
+
     }
 }

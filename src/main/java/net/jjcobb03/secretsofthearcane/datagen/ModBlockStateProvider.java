@@ -20,6 +20,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     // List of blocks to be registered
     @Override
     protected void registerStatesAndModels() {
+        // Simple Blocks
         blockWithItem(ModBlocks.ROWAN_PLANKS);
         blockWithItem(ModBlocks.TERRA_ORE);
         blockWithItem(ModBlocks.TERRA_DEEPSLATE_ORE);
@@ -27,7 +28,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     /**
      * Helper method for simple blocks that use the same texture on all 6 faces
-     * @param deferredBlock
+     *
+     * @param deferredBlock - A DeferredBlock that will be created with the same texture on all 6 faces
      */
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));

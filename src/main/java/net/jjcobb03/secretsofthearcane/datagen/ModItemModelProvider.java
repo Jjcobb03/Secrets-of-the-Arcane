@@ -19,6 +19,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     // Register Items
     @Override
     protected void registerModels() {
+
+        // Basic items with simple textures/models
         basicItem(ModItems.VIS_CRYSTAL.get());
         basicItem(ModItems.ESSENTIA_VIAL.get());
     }

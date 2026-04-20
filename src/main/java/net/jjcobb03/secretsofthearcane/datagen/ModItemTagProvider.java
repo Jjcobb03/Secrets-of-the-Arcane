@@ -26,10 +26,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
     // Add tags to items
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+
+        // Add the minecraft:planks tag
         tag(ItemTags.PLANKS)
                 .add(ModBlocks.ROWAN_PLANKS.get().asItem());
+        
+        // Add the minecraft:logs tag
         tag(ItemTags.LOGS)
                 .add(ModBlocks.ROWAN_LOG.get().asItem());
+
+        // Add the minecraft:logs_that_burn tag
         tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.ROWAN_LOG.get().asItem());
     }
