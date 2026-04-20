@@ -33,6 +33,7 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.ROWAN_PLANKS);
                                 output.accept(ModBlocks.TERRA_ORE);
                                 output.accept(ModBlocks.TERRA_DEEPSLATE_ORE);
+                                output.accept(ModItems.ESSENTIA_VIAL);
                                 output.accept(ModItems.VIS_CRYSTAL);
                             }).build());
 
