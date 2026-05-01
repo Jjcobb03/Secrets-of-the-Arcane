@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "secretsofthearcane:block/rowan_log_top",
-    "side": "secretsofthearcane:block/rowan_log"
-  }
-}
