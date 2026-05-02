@@ -36,8 +36,21 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ROWAN_LOG.get())
                 .add(ModBlocks.ROWAN_PLANKS.get());
 
+        // Blocks that are considered logs
         tag(BlockTags.LOGS)
                 .add(ModBlocks.ROWAN_LOG.get());
+
+        // Fence Blocks
+        tag(BlockTags.FENCES)
+                .add(ModBlocks.ROWAN_FENCE.get());
+
+        // Fence Gate Blocks
+        tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.ROWAN_FENCE_GATE.get());
+
+        // Wall Blocks
+        tag(BlockTags.WALLS)
+                .add(ModBlocks.ROWAN_WALL.get());
 
     }
 }

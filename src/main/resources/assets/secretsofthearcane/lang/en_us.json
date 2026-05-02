@@ -7,6 +7,16 @@
 
   "block.secretsofthearcane.rowan_log": "Rowan Log",
   "block.secretsofthearcane.rowan_planks": "Rowan Planks",
+  "block.secretsofthearcane.rowan_stairs": "Rowan Stairs",
+  "block.secretsofthearcane.rowan_slab": "Rowan Slab",
+  "block.secretsofthearcane.rowan_pressure_plate": "Rowan Pressure Plate",
+  "block.secretsofthearcane.rowan_button": "Rowan Button",
+  "block.secretsofthearcane.rowan_fence": "Rowan Wall",
+  "block.secretsofthearcane.rowan_fence_gate": "Rowan Fence Gate",
+  "block.secretsofthearcane.rowan_wall": "Rowan Wall",
+  "block.secretsofthearcane.rowan_door": "Rowan Door",
+  "block.secretsofthearcane.rowan_trapdoor": "Rowan Trapdoor",
+
   "block.secretsofthearcane.terra_ore": "Terra Ore",
   "block.secretsofthearcane.terra_deepslate_ore": "Terra Deepslate Ore",
 

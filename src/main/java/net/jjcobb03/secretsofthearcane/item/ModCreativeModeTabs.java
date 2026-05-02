@@ -29,8 +29,20 @@ public class ModCreativeModeTabs {
                             .displayItems((itemDisplayParameters, output) -> {
                                 // Items that will display in this tab
                                 output.accept(ModItems.TEST_ITEM);
+
+                                // Rowan Wood Set
                                 output.accept(ModBlocks.ROWAN_LOG);
                                 output.accept(ModBlocks.ROWAN_PLANKS);
+                                output.accept(ModBlocks.ROWAN_STAIRS);
+                                output.accept(ModBlocks.ROWAN_SLAB);
+                                output.accept(ModBlocks.ROWAN_PRESSURE_PLATE);
+                                output.accept(ModBlocks.ROWAN_BUTTON);
+                                output.accept(ModBlocks.ROWAN_FENCE);
+                                output.accept(ModBlocks.ROWAN_FENCE_GATE);
+                                output.accept(ModBlocks.ROWAN_WALL);
+                                output.accept(ModBlocks.ROWAN_DOOR);
+                                output.accept(ModBlocks.ROWAN_TRAPDOOR);
+
                                 output.accept(ModBlocks.TERRA_ORE);
                                 output.accept(ModBlocks.TERRA_DEEPSLATE_ORE);
                                 output.accept(ModItems.ESSENTIA_VIAL);
