@@ -32,6 +32,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModBlocks.TERRA_DEEPSLATE_ORE
         );
 
+        // TODO: Remove this recipe after making a proper shaped recipe
         // Example shaped recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROWAN_LOG.get())
                 .pattern("XXX")
@@ -40,6 +41,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('X', ModBlocks.ROWAN_PLANKS.get())
                 .unlockedBy("has_rowan_planks", has(ModBlocks.ROWAN_PLANKS)).save(recipeOutput);
 
+        // TODO: Make this recipe show up along with the other Log -> Plank recipes
         // Shapeless Recipe for Rowan Planks
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROWAN_PLANKS.get(), 4)
                 .requires(ModBlocks.ROWAN_LOG)

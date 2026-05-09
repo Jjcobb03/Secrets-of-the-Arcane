@@ -34,7 +34,19 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         // Blocks that are best harvested with an axe
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.ROWAN_LOG.get())
-                .add(ModBlocks.ROWAN_PLANKS.get());
+                .add(ModBlocks.ROWAN_WOOD.get())
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get())
+                .add(ModBlocks.STRIPPED_ROWAN_WOOD.get())
+                .add(ModBlocks.ROWAN_PLANKS.get())
+                .add(ModBlocks.ROWAN_STAIRS.get())
+                .add(ModBlocks.ROWAN_SLAB.get())
+                .add(ModBlocks.ROWAN_DOOR.get())
+                .add(ModBlocks.ROWAN_TRAPDOOR.get())
+                .add(ModBlocks.ROWAN_FENCE.get())
+                .add(ModBlocks.ROWAN_FENCE_GATE.get())
+                .add(ModBlocks.ROWAN_WALL.get())
+                .add(ModBlocks.ROWAN_PRESSURE_PLATE.get())
+                .add(ModBlocks.ROWAN_BUTTON.get());
 
         // Blocks that are considered logs
         tag(BlockTags.LOGS)

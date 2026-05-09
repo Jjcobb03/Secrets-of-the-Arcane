@@ -35,7 +35,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
         // Add the minecraft:logs tag
         tag(ItemTags.LOGS)
                 .add(ModBlocks.ROWAN_LOG.get().asItem())
-                .add(ModBlocks.STRIPPED_ROWAN_LOG.get().asItem());
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get().asItem())
+                .add(ModBlocks.ROWAN_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_WOOD.get().asItem());
 
         // Add the minecraft:logs_that_burn tag
         tag(ItemTags.LOGS_THAT_BURN)
