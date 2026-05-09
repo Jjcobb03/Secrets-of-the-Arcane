@@ -5,6 +5,7 @@ import net.jjcobb03.secretsofthearcane.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -33,10 +34,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
         
         // Add the minecraft:logs tag
         tag(ItemTags.LOGS)
-                .add(ModBlocks.ROWAN_LOG.get().asItem());
+                .add(ModBlocks.ROWAN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get().asItem());
 
         // Add the minecraft:logs_that_burn tag
         tag(ItemTags.LOGS_THAT_BURN)
-                .add(ModBlocks.ROWAN_LOG.get().asItem());
+                .add(ModBlocks.ROWAN_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_LOG.get().asItem())
+                .add(ModBlocks.ROWAN_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_ROWAN_WOOD.get().asItem());
     }
 }

@@ -6,6 +6,10 @@
   "item.secretsofthearcane.essentia_vial": "Essentia Vial",
 
   "block.secretsofthearcane.rowan_log": "Rowan Log",
+  "block.secretsofthearcane.stripped_rowan_log": "Stripped Rowan Log",
+  "block.secretsofthearcane.rowan_wood": "Rowan Wood",
+  "block.secretsofthearcane.stripped_rowan_wood": "Stripped Rowan Wood",
+  "block.secretsofthearcane.rowan_leaves": "Rowan Leaves",
   "block.secretsofthearcane.rowan_planks": "Rowan Planks",
   "block.secretsofthearcane.rowan_stairs": "Rowan Stairs",
   "block.secretsofthearcane.rowan_slab": "Rowan Slab",
@@ -16,6 +20,7 @@
   "block.secretsofthearcane.rowan_wall": "Rowan Wall",
   "block.secretsofthearcane.rowan_door": "Rowan Door",
   "block.secretsofthearcane.rowan_trapdoor": "Rowan Trapdoor",
+  "block.secretsofthearcane.rowan_sapling": "Rowan Sapling",
 
   "block.secretsofthearcane.terra_ore": "Terra Ore",
   "block.secretsofthearcane.terra_deepslate_ore": "Terra Deepslate Ore",

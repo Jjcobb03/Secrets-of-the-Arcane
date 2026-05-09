@@ -6,6 +6,7 @@ import net.jjcobb03.secretsofthearcane.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -34,6 +35,20 @@ public class ModItemModelProvider extends ItemModelProvider {
         fenceItem(ModBlocks.ROWAN_FENCE, ModBlocks.ROWAN_PLANKS);
         wallItem(ModBlocks.ROWAN_WALL, ModBlocks.ROWAN_PLANKS);
 
+        saplingItem(ModBlocks.ROWAN_SAPLING);
+
+    }
+
+    /**
+     * Helper method from Kaupenjoe's tutorial. Creates an item model for saplings
+     *
+     * @param item - The sapling that will have an item model of it made
+     * @return - An ItemModelBuilder for the sapling
+     */
+    private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(SecretsOfTheArcane.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     /**

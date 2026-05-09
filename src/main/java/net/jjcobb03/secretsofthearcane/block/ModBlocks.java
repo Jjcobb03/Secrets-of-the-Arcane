@@ -1,11 +1,17 @@
 package net.jjcobb03.secretsofthearcane.block;
 
 import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
+import net.jjcobb03.secretsofthearcane.block.custom.ModFlammableRotatedPillarBlock;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
+import net.jjcobb03.secretsofthearcane.worldgen.tree.ModTreeGrowers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.neoforged.bus.api.IEventBus;
@@ -25,12 +31,60 @@ public class ModBlocks {
      * Rowan Wood set, with some notes on how each block type works
      */
 
-    // Rowan Log, uses RotatedPillarBlock since it can be placed directionally
+    // Rowan Log, uses ModFlammableRotatedPillarBlock since it can be placed directionally, and burned
     public static final DeferredBlock<Block> ROWAN_LOG = registerBlock("rowan_log",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
-    // Rowan Planks, uses Block because there's nothing special about it
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+    public static final DeferredBlock<Block> ROWAN_WOOD = registerBlock("rowan_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_ROWAN_LOG = registerBlock("stripped_rowan_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
+    public static final DeferredBlock<Block> STRIPPED_ROWAN_WOOD = registerBlock("stripped_rowan_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final DeferredBlock<Block> ROWAN_SAPLING = registerBlock("rowan_sapling",
+            () -> new SaplingBlock(ModTreeGrowers.ROWAN, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    // Leaves need an anonymous class to set flammability properties
+    public static final DeferredBlock<Block> ROWAN_LEAVES = registerBlock("rowan_leaves",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
+
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+
+    // Rowan Planks, uses Block, has some functions because the flammability needs set
     public static final DeferredBlock<Block> ROWAN_PLANKS = registerBlock("rowan_planks",
-            () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.WOOD)));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)) {
+
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+
+
     // Rowan Stairs, uses StairBlock, needs to reference an existing block's blockstate(?)
     public static final DeferredBlock<StairBlock> ROWAN_STAIRS = registerBlock("rowan_stairs",
             () -> new StairBlock(ModBlocks.ROWAN_PLANKS.get().defaultBlockState(),

@@ -32,6 +32,10 @@ public class ModCreativeModeTabs {
 
                                 // Rowan Wood Set
                                 output.accept(ModBlocks.ROWAN_LOG);
+                                output.accept(ModBlocks.ROWAN_WOOD);
+                                output.accept(ModBlocks.STRIPPED_ROWAN_LOG);
+                                output.accept(ModBlocks.STRIPPED_ROWAN_WOOD);
+                                output.accept(ModBlocks.ROWAN_LEAVES);
                                 output.accept(ModBlocks.ROWAN_PLANKS);
                                 output.accept(ModBlocks.ROWAN_STAIRS);
                                 output.accept(ModBlocks.ROWAN_SLAB);
@@ -42,6 +46,7 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.ROWAN_WALL);
                                 output.accept(ModBlocks.ROWAN_DOOR);
                                 output.accept(ModBlocks.ROWAN_TRAPDOOR);
+                                output.accept(ModBlocks.ROWAN_SAPLING);
 
                                 output.accept(ModBlocks.TERRA_ORE);
                                 output.accept(ModBlocks.TERRA_DEEPSLATE_ORE);

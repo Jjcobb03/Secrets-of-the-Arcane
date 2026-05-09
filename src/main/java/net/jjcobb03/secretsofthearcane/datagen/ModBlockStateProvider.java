@@ -4,6 +4,8 @@ import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -48,8 +50,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.ROWAN_FENCE_GATE);
         blockItem(ModBlocks.ROWAN_TRAPDOOR, "_bottom");
 
+        logBlock(((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get()));
+        blockItem(ModBlocks.ROWAN_LOG);
+        logBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_ROWAN_LOG.get()));
+        blockItem(ModBlocks.STRIPPED_ROWAN_LOG);
+        axisBlock(((RotatedPillarBlock) ModBlocks.ROWAN_WOOD.get()),
+                blockTexture(ModBlocks.ROWAN_LOG.get()), blockTexture(ModBlocks.ROWAN_LOG.get()));
+        blockItem(ModBlocks.ROWAN_WOOD);
+        axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_ROWAN_WOOD.get()),
+                blockTexture(ModBlocks.STRIPPED_ROWAN_LOG.get()), blockTexture(ModBlocks.STRIPPED_ROWAN_LOG.get()));
+        blockItem(ModBlocks.STRIPPED_ROWAN_WOOD);
+
+        leavesBlock(ModBlocks.ROWAN_LEAVES);
+        saplingBlock(ModBlocks.ROWAN_SAPLING);
+
+
+
         // Pillar Blocks
-        rotatedPillarBlockWithItem((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());
+        // rotatedPillarBlockWithItem((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());
 //        logBlock((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());
 //        simpleBlockItem(
 //                ModBlocks.ROWAN_LOG.get(),
@@ -78,6 +96,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
         logBlock(block);
         // Item Model
         simpleBlockItem(block, models().getExistingFile(modLoc("block/" + name)));
+    }
+
+    /**
+     * Helper method for creating sapling blocks
+     *
+     * @param blockRegistryObject - The sapling to be created
+     */
+    private void saplingBlock(DeferredBlock<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(),
+                        blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void leavesBlock(DeferredBlock<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().singleTexture(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(),
+                        ResourceLocation.parse("minecraft:block/leaves"), "all",
+                        blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     /**

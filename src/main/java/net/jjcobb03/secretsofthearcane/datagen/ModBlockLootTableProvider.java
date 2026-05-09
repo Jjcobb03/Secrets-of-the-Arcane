@@ -34,6 +34,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         // Blocks that drop themselves
         dropSelf(ModBlocks.ROWAN_LOG.get());
+        dropSelf(ModBlocks.ROWAN_WOOD.get());
+        dropSelf(ModBlocks.STRIPPED_ROWAN_LOG.get());
+        dropSelf(ModBlocks.STRIPPED_ROWAN_WOOD.get());
+        dropSelf(ModBlocks.ROWAN_SAPLING.get());
         dropSelf(ModBlocks.ROWAN_PLANKS.get());
         dropSelf(ModBlocks.ROWAN_STAIRS.get());
         dropSelf(ModBlocks.ROWAN_PRESSURE_PLATE.get());
@@ -50,6 +54,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         // Unique for being a multiblock with 1 drop
         add(ModBlocks.ROWAN_DOOR.get(),
                 block -> createDoorTable(ModBlocks.ROWAN_DOOR.get()));
+
+        // Sapling drop chance from leaves
+        add(ModBlocks.ROWAN_LEAVES.get(), block ->
+                createLeavesDrops(block, ModBlocks.ROWAN_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
 
 
