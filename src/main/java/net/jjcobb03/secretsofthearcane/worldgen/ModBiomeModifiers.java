@@ -14,9 +14,12 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class ModBiomeModifiers {
 
+    // Ore Generation
     public static final ResourceKey<BiomeModifier> ADD_TERRA_ORE = registerKey("add_terra_ore");
     public static final ResourceKey<BiomeModifier> ADD_NETHER_TERRA_ORE = registerKey("add_nether_terra_ore");
     public static final ResourceKey<BiomeModifier> ADD_END_TERRA_ORE = registerKey("add_end_terra_ore");
+    // Tree Generation
+    public static final ResourceKey<BiomeModifier> ADD_TREE_ROWAN = registerKey("add_tree_rowan");
 
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
@@ -24,6 +27,7 @@ public class ModBiomeModifiers {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
 
+        // Ore Generation
         context.register(ADD_TERRA_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.TERRA_ORE_PLACED_KEY)),
@@ -40,6 +44,13 @@ public class ModBiomeModifiers {
                 biomes.getOrThrow(BiomeTags.IS_END),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.END_TERRA_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES
+        ));
+
+        // Tree Generation
+        context.register(ADD_TREE_ROWAN, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.ROWAN_PLACED_KEY)),
+                GenerationStep.Decoration.VEGETAL_DECORATION
         ));
     }
 

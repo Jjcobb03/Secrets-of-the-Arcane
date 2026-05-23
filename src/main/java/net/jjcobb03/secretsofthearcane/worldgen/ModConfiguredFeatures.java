@@ -64,11 +64,11 @@ public class ModConfiguredFeatures {
         register(context, ROWAN_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 // Selects the Log
                 BlockStateProvider.simple(ModBlocks.ROWAN_LOG.get()),
-                // Decides wow the logs are placed
+                // Decides how the logs are placed
                 new ForkingTrunkPlacer(4, 4, 3),
                 // Selects the leaves
                 BlockStateProvider.simple(ModBlocks.ROWAN_LEAVES.get()),
-                // Decides how the logs are placed
+                // Decides how the leaves are placed
                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
                 new TwoLayersFeatureSize(1, 0, 2)
         ).build());

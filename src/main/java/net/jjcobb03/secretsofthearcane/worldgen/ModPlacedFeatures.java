@@ -1,9 +1,12 @@
 package net.jjcobb03.secretsofthearcane.worldgen;
 
 import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
+import net.jjcobb03.secretsofthearcane.block.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -17,15 +20,20 @@ import java.util.List;
 public class ModPlacedFeatures {
 
     // ResourceKeys for PlacedFeatures
+
+    // Ore Generation
     public static final ResourceKey<PlacedFeature> TERRA_ORE_PLACED_KEY = registerKey("terra_ore_placed");
     public static final ResourceKey<PlacedFeature> NETHER_TERRA_ORE_PLACED_KEY = registerKey("nether_terra_ore_placed");
     public static final ResourceKey<PlacedFeature> END_TERRA_ORE_PLACED_KEY = registerKey("end_terra_ore_placed");
+    // Tree Generation
+    public static final ResourceKey<PlacedFeature> ROWAN_PLACED_KEY = registerKey("rowan_placed");
 
     // PlacedFeatures are defined here
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
+        // Ore Generation
         register(context, TERRA_ORE_PLACED_KEY,
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_TERRA_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(12,
@@ -40,6 +48,14 @@ public class ModPlacedFeatures {
                 configuredFeatures.getOrThrow(ModConfiguredFeatures.END_TERRA_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(12,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
+
+        // Tree Generation
+        register(context, ROWAN_PLACED_KEY,
+                configuredFeatures.getOrThrow(ModConfiguredFeatures.ROWAN_KEY),
+                // 1 / chance must be an int, or it will break
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
+                        // Restricts the tree to spawning only where the sapling can be placed
+                        ModBlocks.ROWAN_SAPLING.get()));
 
 
     }
