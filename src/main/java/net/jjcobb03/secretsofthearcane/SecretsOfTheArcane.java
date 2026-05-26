@@ -3,6 +3,7 @@ package net.jjcobb03.secretsofthearcane;
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
 import net.jjcobb03.secretsofthearcane.item.ModCreativeModeTabs;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
+import net.jjcobb03.secretsofthearcane.magic.aspect.AspectAssignments;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -80,6 +81,8 @@ public class SecretsOfTheArcane {
         ModItems.register(modEventBus);
         // Call the Deferred Register for Blocks from ModBlocks
         ModBlocks.register(modEventBus);
+        // Call the AspectAssignments to assign aspect to items
+        AspectAssignments.register();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
