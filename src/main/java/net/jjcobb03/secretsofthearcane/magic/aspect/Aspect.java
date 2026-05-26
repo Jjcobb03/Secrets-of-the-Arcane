@@ -77,6 +77,10 @@ public class Aspect {
         return parent1 == aspect || parent2 == aspect;
     }
 
+    public String getId() {
+        return id;
+    }
+
     /**
      * Get the 1st Aspect used to make this one
      * @return - The 1st Aspect used to make this one

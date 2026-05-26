@@ -5,8 +5,9 @@ package net.jjcobb03.secretsofthearcane.magic.aspect;
  */
 public class ModAspects {
 
-    // Primal Aspects
+    // TODO Add localization for Aspect names
 
+    // Primal Aspects
     public static final Aspect ORDO = new Aspect("ordo");
     public static final Aspect PERDITIO = new Aspect("perditio");
     public static final Aspect IGNIS = new Aspect("ignis");
