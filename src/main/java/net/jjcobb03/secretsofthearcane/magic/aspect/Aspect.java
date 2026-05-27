@@ -8,6 +8,9 @@ public class Aspect {
     // The name of this Aspect
     private final String id;
 
+    // The color used for rendering textures
+    private final int color;
+
     // Is this a primal aspect, meaning it has no parents?
     private final boolean primal;
 
@@ -18,9 +21,11 @@ public class Aspect {
     /**
      * Constructor for Primal Aspects
      * @param id - The name of the aspect
+     * @param color - The color for the aspect in Hexadecimal
      */
-    public Aspect(String id) {
+    public Aspect(String id, int color) {
         this.id = id;
+        this.color = color;
         this.primal = true;
         // No parents
         this.parent1 = null;
@@ -30,11 +35,13 @@ public class Aspect {
     /**
      * Constructor for Compound Aspects
      * @param id - The name of the Aspect
+     * @param color - The color for the aspect in Hexadecimal
      * @param parent1 - The 1st component of this Aspect
      * @param parent2 - The 2nd component of this Aspect
      */
-    public Aspect(String id, Aspect parent1, Aspect parent2) {
+    public Aspect(String id, int color, Aspect parent1, Aspect parent2) {
         this.id = id;
+        this.color = color;
         this.primal = false;
 
         this.parent1 = parent1;
@@ -95,6 +102,21 @@ public class Aspect {
      */
     public Aspect getParent2() {
         return parent2;
+    }
+
+    public int getRed() {
+        // Bitwise operation to get the red bits
+        return (color >> 16) & 255;
+    }
+
+    public int getGreen() {
+        // Bitwise operation to get the green bits
+        return (color >> 8) & 255;
+    }
+
+    public int getBlue() {
+        // Bitwise operation to get the blue bits
+        return color & 255;
     }
 
     @Override
