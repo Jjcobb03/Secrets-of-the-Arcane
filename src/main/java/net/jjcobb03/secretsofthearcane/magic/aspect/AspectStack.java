@@ -6,7 +6,6 @@ package net.jjcobb03.secretsofthearcane.magic.aspect;
 public class AspectStack {
 
     private final Aspect aspect;
-    // Unsure as to whether or not this should remain a final
     private final int amount;
 
     /**
@@ -33,6 +32,22 @@ public class AspectStack {
      */
     public int getAmount() {
         return amount;
+    }
+
+    /**
+     * Check if the AspectStack is empty
+     * @return - True if empty, false if not
+     */
+    public boolean isEmpty() {
+        return amount <= 0;
+    }
+
+    /**
+     * Get a copy of this AspectStack
+     * @return - A copy of this AspectStack
+     */
+    public AspectStack copy() {
+        return new AspectStack(aspect, amount);
     }
 
     @Override
