@@ -1,6 +1,7 @@
 package net.jjcobb03.secretsofthearcane.block;
 
 import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
+import net.jjcobb03.secretsofthearcane.block.custom.EssentiaJarBlock;
 import net.jjcobb03.secretsofthearcane.block.custom.ModFlammableRotatedPillarBlock;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
 import net.jjcobb03.secretsofthearcane.worldgen.tree.ModTreeGrowers;
@@ -121,6 +122,10 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(1f).sound(SoundType.STONE)));
     public static final DeferredBlock<Block> TERRA_DEEPSLATE_ORE = registerBlock("terra_deepslate_ore",
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(1f).sound(SoundType.DEEPSLATE)));
+
+    // Essentia Storage Blocks
+    public static final DeferredBlock<EssentiaJarBlock> ESSENTIA_JAR = registerBlock("essentia_jar", 
+            () -> new EssentiaJarBlock(BlockBehaviour.Properties.of().strength(1.0f)));
 
     // Registers the Block and the BlockItem
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

@@ -1,8 +1,10 @@
 package net.jjcobb03.secretsofthearcane.magic.aspect;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static java.lang.Math.min;
@@ -60,7 +62,7 @@ public class EssentiaStorage implements IEssentiaContainer {
         int availableSpace = capacity - getStoredAmount();
 
         // Check if there's storage space
-        if (capacity <= 0) {
+        if (availableSpace <= 0) {
             return 0;
         }
 
@@ -110,5 +112,59 @@ public class EssentiaStorage implements IEssentiaContainer {
 
         // Return the extracted amount as an AspectStack
         return new AspectStack(aspect, extracted);
+    }
+
+
+    /**
+     * Save the data
+     * @return - A CompoundTag containing information about the stored Essentia
+     */
+    public CompoundTag save() {
+
+        CompoundTag tag = new CompoundTag();
+
+        ListTag aspectList = new ListTag();
+
+        for (Map.Entry<Aspect, Integer> entry : contents.entrySet()) {
+
+            CompoundTag aspectTag = new CompoundTag();
+
+            aspectTag.putString("Aspect", entry.getKey().getId());
+
+            aspectTag.putInt("Amount", entry.getValue());
+
+            aspectList.add(aspectTag);
+        }
+
+        tag.put("Essentia", aspectList);
+
+        return tag;
+    }
+
+    /**
+     * Loads data from a CompoundTag
+     * @param tag - The Tag which the data is loaded from
+     */
+    public void load(CompoundTag tag) {
+
+        contents.clear();
+
+        ListTag aspectList = tag.getList("Essentia", CompoundTag.TAG_COMPOUND);
+
+        for (int i = 0; i < aspectList.size(); i++) {
+
+            CompoundTag aspectTag = aspectList.getCompound(i);
+
+            String aspectId = aspectTag.getString("Aspect");
+
+            int amount = aspectTag.getInt("Amount");
+
+            Aspect aspect = ModAspects.getAspect(aspectId);
+
+            // Add the aspect and amount to the container's contents
+            if (aspect != null && amount > 0) {
+                contents.put(aspect, amount);
+            }
+        }
     }
 }
