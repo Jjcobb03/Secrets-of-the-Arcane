@@ -70,10 +70,6 @@ public class Aspect {
      * @return - True if that aspect is a component of this one, false if not
      */
     public boolean contains(Aspect aspect) {
-        // Unsure if I want to keep this
-//        if (this == aspect) {
-//            return true;
-//        }
 
         // A primal Aspect contains no other components
         if (primal) {
@@ -102,6 +98,10 @@ public class Aspect {
      */
     public Aspect getParent2() {
         return parent2;
+    }
+
+    public int getColor() {
+        return color;
     }
 
     public int getRed() {
