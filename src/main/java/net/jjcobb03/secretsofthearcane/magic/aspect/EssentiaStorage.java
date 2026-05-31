@@ -13,7 +13,7 @@ public class EssentiaStorage implements IEssentiaContainer {
 
     private final int capacity;
 
-    private final Map<Aspect, Integer> contents;
+    protected final Map<Aspect, Integer> contents;
 
     public EssentiaStorage(int capacity) {
         this.capacity = capacity;
@@ -167,4 +167,28 @@ public class EssentiaStorage implements IEssentiaContainer {
             }
         }
     }
+
+    /**
+     * Returns true if the container currently has no stored Essentia.
+     */
+    public boolean isEmpty() {
+        return contents.isEmpty();
+    }
+
+    /**
+     * Gets the first stored Aspect.
+     *
+     * @return The stored Aspect, or null if empty.
+     */
+    public Aspect getStoredAspect() {
+
+        if (contents.isEmpty()) {
+            return null;
+        }
+
+        return contents.keySet()
+                .iterator()
+                .next();
+    }
+
 }
