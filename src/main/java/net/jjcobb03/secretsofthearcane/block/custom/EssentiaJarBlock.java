@@ -42,7 +42,7 @@ public class EssentiaJarBlock extends BaseEntityBlock {
         return new EssentiaJarBlockEntity(pos, state);
     }
 
-    /* Print the contents in chat when shift right clicked */
+    /* Print the contents in chat when shift right-clicked */
     @Override
     protected InteractionResult useWithoutItem(
             BlockState state,
