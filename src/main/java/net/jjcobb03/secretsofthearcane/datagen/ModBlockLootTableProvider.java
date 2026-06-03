@@ -47,6 +47,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ROWAN_WALL.get());
         dropSelf(ModBlocks.ROWAN_TRAPDOOR.get());
 
+        // TODO setup proper loot table that retains Essentia
+        dropSelf(ModBlocks.ESSENTIA_JAR.get());
+
         // Unique due to double slab dropping 2 slabs
         add(ModBlocks.ROWAN_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.ROWAN_SLAB.get()));

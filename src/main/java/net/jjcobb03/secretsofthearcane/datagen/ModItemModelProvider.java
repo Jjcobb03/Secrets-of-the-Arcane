@@ -27,7 +27,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // Basic items with simple textures/models
         basicItem(ModItems.VIS_CRYSTAL.get());
-        basicItem(ModItems.ESSENTIA_VIAL.get());
+
+        // Getting it's own .json due to being a complex texture
+        //basicItem(ModItems.ESSENTIA_VIAL.get());
 
         basicItem(ModBlocks.ROWAN_DOOR.asItem());
 

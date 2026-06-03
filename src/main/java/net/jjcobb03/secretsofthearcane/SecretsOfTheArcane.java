@@ -31,18 +31,6 @@ public class SecretsOfTheArcane {
 
     // The tutorial I'm using has deleted the large block of code that has been commented out below
 
-//    // Create a Deferred Register to hold Blocks which will all be registered under the "secretsofthearcane" namespace
-//    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MOD_ID);
-//    // Create a Deferred Register to hold Items which will all be registered under the "secretsofthearcane" namespace
-//    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MOD_ID);
-//    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "secretsofthearcane" namespace
-//    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
-//
-//    // Creates a new Block with the id "secretsofthearcane:example_block", combining the namespace and path
-//    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
-//    // Creates a new BlockItem with the id "secretsofthearcane:example_block", combining the namespace and path
-//    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
-//
 //    // Creates a new food item with the id "secretsofthearcane:example_id", nutrition 1 and saturation 2
 //    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
 //            .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
@@ -61,16 +49,6 @@ public class SecretsOfTheArcane {
     public SecretsOfTheArcane(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
-        // The tutorial I'm using has also deleted the following commented out block of code
-
-//        // Register the Deferred Register to the mod event bus so blocks get registered
-//        BLOCKS.register(modEventBus);
-
-//        // Register the Deferred Register to the mod event bus so items get registered
-//        ITEMS.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so tabs get registered
-//        CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (SecretsoftheArcane) to respond directly to events.
@@ -111,13 +89,8 @@ public class SecretsOfTheArcane {
 //        Config.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
     }
 
-    // The tutorial I'm using has deleted the contents of this method
-
-    // Add the example block item to the building blocks tab
+    // Add modded contents to existing creative mode tabs
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-//        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-//            event.accept(EXAMPLE_BLOCK_ITEM);
-//        }
         // Add the test item to the Ingredients creative tab
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.TEST_ITEM);
