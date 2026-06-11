@@ -1,5 +1,7 @@
-package net.jjcobb03.secretsofthearcane.magic.aspect;
+package net.jjcobb03.secretsofthearcane.api.aspect;
 
+import net.jjcobb03.secretsofthearcane.magic.aspect.AspectRegistry;
+import net.jjcobb03.secretsofthearcane.magic.aspect.ModAspects;
 import net.minecraft.world.item.Items;
 
 /**

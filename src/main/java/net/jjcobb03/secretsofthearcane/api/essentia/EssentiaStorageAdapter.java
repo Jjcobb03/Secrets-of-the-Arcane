@@ -1,5 +1,8 @@
-package net.jjcobb03.secretsofthearcane.magic.aspect;
+package net.jjcobb03.secretsofthearcane.api.essentia;
 
+import net.jjcobb03.secretsofthearcane.api.aspect.Aspect;
+import net.jjcobb03.secretsofthearcane.api.aspect.AspectStack;
+import net.jjcobb03.secretsofthearcane.magic.aspect.ModAspects;
 import net.jjcobb03.secretsofthearcane.component.EssentiaContainerData;
 
 import java.util.HashMap;

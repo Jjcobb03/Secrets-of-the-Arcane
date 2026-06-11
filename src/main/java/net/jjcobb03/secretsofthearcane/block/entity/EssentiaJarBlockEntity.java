@@ -1,7 +1,7 @@
 package net.jjcobb03.secretsofthearcane.block.entity;
 
-import net.jjcobb03.secretsofthearcane.magic.aspect.EssentiaStorage;
-import net.jjcobb03.secretsofthearcane.magic.aspect.SingleAspectEssentiaStorage;
+import net.jjcobb03.secretsofthearcane.api.essentia.EssentiaStorage;
+import net.jjcobb03.secretsofthearcane.api.essentia.SingleAspectEssentiaStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;

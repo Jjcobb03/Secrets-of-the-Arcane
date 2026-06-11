@@ -1,8 +1,8 @@
 package net.jjcobb03.secretsofthearcane.item.custom;
 
-import net.jjcobb03.secretsofthearcane.magic.aspect.Aspect;
-import net.jjcobb03.secretsofthearcane.magic.aspect.AspectStack;
-import net.jjcobb03.secretsofthearcane.magic.aspect.TransferAction;
+import net.jjcobb03.secretsofthearcane.api.aspect.Aspect;
+import net.jjcobb03.secretsofthearcane.api.aspect.AspectStack;
+import net.jjcobb03.secretsofthearcane.api.essentia.TransferAction;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.Collection;

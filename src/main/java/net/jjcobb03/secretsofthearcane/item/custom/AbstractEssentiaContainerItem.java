@@ -1,8 +1,11 @@
 package net.jjcobb03.secretsofthearcane.item.custom;
 
+import net.jjcobb03.secretsofthearcane.api.essentia.EssentiaStorage;
+import net.jjcobb03.secretsofthearcane.api.essentia.EssentiaStorageAdapter;
+import net.jjcobb03.secretsofthearcane.api.essentia.TransferAction;
 import net.jjcobb03.secretsofthearcane.component.EssentiaContainerData;
 import net.jjcobb03.secretsofthearcane.component.ModDataComponents;
-import net.jjcobb03.secretsofthearcane.magic.aspect.*;
+import net.jjcobb03.secretsofthearcane.api.aspect.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;

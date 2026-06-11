@@ -1,5 +1,6 @@
 package net.jjcobb03.secretsofthearcane.magic.aspect;
 
+import net.jjcobb03.secretsofthearcane.api.aspect.AspectStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 

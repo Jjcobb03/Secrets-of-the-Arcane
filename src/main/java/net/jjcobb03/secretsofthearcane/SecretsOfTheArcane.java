@@ -5,7 +5,7 @@ import net.jjcobb03.secretsofthearcane.block.entity.ModBlockEntities;
 import net.jjcobb03.secretsofthearcane.component.ModDataComponents;
 import net.jjcobb03.secretsofthearcane.item.ModCreativeModeTabs;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
-import net.jjcobb03.secretsofthearcane.magic.aspect.AspectAssignments;
+import net.jjcobb03.secretsofthearcane.api.aspect.AspectAssignments;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;

@@ -1,5 +1,6 @@
-package net.jjcobb03.secretsofthearcane.magic.aspect;
+package net.jjcobb03.secretsofthearcane.api.essentia;
 
+import net.jjcobb03.secretsofthearcane.api.aspect.AspectStack;
 import net.jjcobb03.secretsofthearcane.item.custom.AbstractEssentiaContainerItem;
 import net.minecraft.world.item.ItemStack;
 

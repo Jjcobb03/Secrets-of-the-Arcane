@@ -1,4 +1,4 @@
-package net.jjcobb03.secretsofthearcane.magic.aspect;
+package net.jjcobb03.secretsofthearcane.api.aspect;
 
 /**
  * This is used to hold a specific type of aspect, and an amount.

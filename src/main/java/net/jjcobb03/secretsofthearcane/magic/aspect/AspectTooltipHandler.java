@@ -1,6 +1,7 @@
 package net.jjcobb03.secretsofthearcane.magic.aspect;
 
 import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
+import net.jjcobb03.secretsofthearcane.api.aspect.AspectStack;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.neoforged.bus.api.SubscribeEvent;

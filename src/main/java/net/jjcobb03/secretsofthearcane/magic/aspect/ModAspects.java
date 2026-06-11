@@ -1,5 +1,7 @@
 package net.jjcobb03.secretsofthearcane.magic.aspect;
 
+import net.jjcobb03.secretsofthearcane.api.aspect.Aspect;
+
 import java.util.HashMap;
 import java.util.Map;
 

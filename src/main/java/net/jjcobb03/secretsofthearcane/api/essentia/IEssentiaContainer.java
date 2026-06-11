@@ -1,6 +1,7 @@
-package net.jjcobb03.secretsofthearcane.magic.aspect;
+package net.jjcobb03.secretsofthearcane.api.essentia;
 
-import net.minecraft.world.item.ItemStack;
+import net.jjcobb03.secretsofthearcane.api.aspect.Aspect;
+import net.jjcobb03.secretsofthearcane.api.aspect.AspectStack;
 
 import java.util.Collection;
 

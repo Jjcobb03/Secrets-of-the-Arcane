@@ -2,7 +2,7 @@ package net.jjcobb03.secretsofthearcane;
 
 import net.jjcobb03.secretsofthearcane.item.ModItems;
 import net.jjcobb03.secretsofthearcane.item.custom.SingleAspectEssentiaContainerItem;
-import net.jjcobb03.secretsofthearcane.magic.aspect.Aspect;
+import net.jjcobb03.secretsofthearcane.api.aspect.Aspect;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

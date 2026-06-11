@@ -1,4 +1,4 @@
-package net.jjcobb03.secretsofthearcane.magic.aspect;
+package net.jjcobb03.secretsofthearcane.api.aspect;
 
 /**
  * This defines the structure of an Aspect
@@ -100,23 +100,12 @@ public class Aspect {
         return parent2;
     }
 
+    /**
+     * Gets the color associated with this Aspect
+     * @return - The color associated with this Aspect
+     */
     public int getColor() {
         return color;
-    }
-
-    public int getRed() {
-        // Bitwise operation to get the red bits
-        return (color >> 16) & 255;
-    }
-
-    public int getGreen() {
-        // Bitwise operation to get the green bits
-        return (color >> 8) & 255;
-    }
-
-    public int getBlue() {
-        // Bitwise operation to get the blue bits
-        return color & 255;
     }
 
     @Override

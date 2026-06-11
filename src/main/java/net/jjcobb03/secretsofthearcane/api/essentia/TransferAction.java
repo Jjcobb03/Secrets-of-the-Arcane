@@ -1,4 +1,4 @@
-package net.jjcobb03.secretsofthearcane.magic.aspect;
+package net.jjcobb03.secretsofthearcane.api.essentia;
 
 /**
  * Determines whether a transfer should be executed or simulated
