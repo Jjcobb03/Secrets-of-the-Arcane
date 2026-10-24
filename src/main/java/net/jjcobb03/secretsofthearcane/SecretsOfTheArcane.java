@@ -1,5 +1,8 @@
 package net.jjcobb03.secretsofthearcane;
 
+import net.jjcobb03.secretsofthearcane.api.ArcaneApi;
+import net.jjcobb03.secretsofthearcane.api.registry.ArcaneRegistries;
+import net.jjcobb03.secretsofthearcane.aspect.ModAspects;
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
 import net.jjcobb03.secretsofthearcane.item.ModCreativeModeTabs;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
@@ -22,7 +25,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 @Mod(SecretsOfTheArcane.MOD_ID)
 public class SecretsOfTheArcane {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "secretsofthearcane";
+    public static final String MOD_ID = ArcaneApi.MOD_ID;
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -80,6 +83,9 @@ public class SecretsOfTheArcane {
         ModItems.register(modEventBus);
         // Call the Deferred Register for Blocks from ModBlocks
         ModBlocks.register(modEventBus);
+
+        modEventBus.addListener(ArcaneRegistries::onNewRegistry);
+        ModAspects.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
