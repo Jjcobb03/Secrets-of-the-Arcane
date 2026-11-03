@@ -7,7 +7,7 @@ package net.jjcobb03.secretsofthearcane.api.aspect;
 public class VisUnits {
 
     // The value of 1 unit of Vis. Changing this will break existing saves.
-    public static final int VIS_SCALE;
+    public static final int VIS_SCALE = 100;
 
     private VisUnits() {}
 
