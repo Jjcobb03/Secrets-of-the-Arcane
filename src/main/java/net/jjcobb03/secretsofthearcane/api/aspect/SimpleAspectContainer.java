@@ -1,6 +1,11 @@
 package net.jjcobb03.secretsofthearcane.api.aspect;
 
+import com.mojang.logging.LogUtils;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.nbt.Tag;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -29,6 +34,9 @@ public class SimpleAspectContainer implements IAspectContainer {
     // Will only hold Aspects with a total above 0
     private final Map<Aspect, Integer> contents = new LinkedHashMap<>();
     private int total = 0;
+
+    // Used for saving/loading data
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     /**
      * Main constructor used by the factory constructors
@@ -188,5 +196,40 @@ public class SimpleAspectContainer implements IAspectContainer {
         List<AspectStack> result = new ArrayList<>();
         contents.forEach((aspect, amount) -> result.add(new AspectStack(aspect, amount)));
         return result;
+    }
+
+    // Write the contents as a list of {Aspect, amount} entries
+    public ListTag save() {
+        ListTag list = new ListTag();
+
+        // Loop through the contents and save each Aspect and amount
+        for (AspectStack stack : getContents()) {
+            AspectStack.CODEC.encodeStart(NbtOps.INSTANCE, stack)
+                    // Log any potential errors
+                    .resultOrPartial(error -> LOGGER.error("Failed to save aspect stack: {}", error))
+                    .ifPresent(list::add);
+        }
+        return list;
+    }
+
+    /**
+     * Replaces the contents with what was saved. Skips over any potential bad entires, so they don't cause crashes
+     *
+     * @param list - The data being loaded
+     */
+    public void load(ListTag list) {
+        contents.clear();
+        total = 0;
+
+        for (Tag entry : list) {
+            AspectStack.CODEC.parse(NbtOps.INSTANCE, entry)
+                    .resultOrPartial(error -> LOGGER.warn("Skipping unreadable aspect stack: {}", error))
+                    .ifPresent(stack -> {
+                        if (stack.amount() > 0) {
+                            contents.merge(stack.aspect(), stack.amount(), Integer::sum);
+                            total += stack.amount();
+                        }
+                    });
+        }
     }
 }
