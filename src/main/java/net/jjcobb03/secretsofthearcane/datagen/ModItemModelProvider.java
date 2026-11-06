@@ -1,7 +1,7 @@
 package net.jjcobb03.secretsofthearcane.datagen;
 
 import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
-import net.jjcobb03.secretsofthearcane.api.item.AspectContainerItem;
+import net.jjcobb03.secretsofthearcane.api.item.EssentiaContainerItem;
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
 import net.minecraft.data.PackOutput;
@@ -108,7 +108,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .parent(generated)
                 .texture("layer0", modLoc("item/" + name))
                 .override()
-                .predicate(AspectContainerItem.FILLED_PROPERTY, 1.0f)
+                .predicate(EssentiaContainerItem.FILLED_PROPERTY, 1.0f)
                 .model(filled)
                 .end();
     }

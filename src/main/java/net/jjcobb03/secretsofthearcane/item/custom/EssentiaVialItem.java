@@ -1,6 +1,7 @@
 package net.jjcobb03.secretsofthearcane.item.custom;
 
 import net.jjcobb03.secretsofthearcane.api.aspect.SimpleAspectContainer;
+import net.jjcobb03.secretsofthearcane.api.item.EssentiaContainerItem;
 
 // Holds 16 Essentia of a single Aspect
 public class EssentiaVialItem extends EssentiaContainerItem {

@@ -16,17 +16,17 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.List;
 
 /**
- * Base class for items that store aspects. Subclasses only define their capacity rules.
+ * Base class for items that store Essentia. Subclasses only define their capacity rules.
  * Provides the fill bar, the liquid color used for tinting, and a tooltip.
  */
-public abstract class AspectContainerItem extends Item {
+public abstract class EssentiaContainerItem extends Item {
 
     // Item model predicate: 1 when the item holds anything, 0 when empty. Used to swap in the "filled" model
     public static final ResourceLocation FILLED_PROPERTY = ArcaneApi.id("filled");
 
     private int cachedCapacity = -1;
 
-    protected AspectContainerItem(Properties properties) {
+    protected EssentiaContainerItem(Properties properties) {
         super(properties);
     }
 
@@ -58,11 +58,6 @@ public abstract class AspectContainerItem extends Item {
         return getContents(stack).getBlendedColor();
     }
 
-    // How a stored amount is shown to the player. Vis-style items can override this to divide by VisUnits.VIS_SCALE
-    protected String formatAmount(int amount) {
-        return String.valueOf(amount);
-    }
-
     @Override
     public boolean isBarVisible(ItemStack stack) {
         return !getContents(stack).isEmpty();
@@ -85,7 +80,7 @@ public abstract class AspectContainerItem extends Item {
             int color = aspectStack.aspect().getColor();
             tooltip.add(Component.empty()
                     .append(aspectStack.aspect().getDisplayName().copy().withStyle(style -> style.withColor(color)))
-                    .append(Component.literal(" x" + formatAmount(aspectStack.amount()))));
+                    .append(Component.literal(" x" + aspectStack.amount())));
         }
         super.appendHoverText(stack, context, tooltip, flag);
     }

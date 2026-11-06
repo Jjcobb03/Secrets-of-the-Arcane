@@ -1,6 +1,6 @@
 package net.jjcobb03.secretsofthearcane;
 
-import net.jjcobb03.secretsofthearcane.api.item.AspectContainerItem;
+import net.jjcobb03.secretsofthearcane.api.item.EssentiaContainerItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -36,9 +36,9 @@ public class SecretsoftheArcaneClient {
 
         event.enqueueWork(() -> {
             for (Item item : BuiltInRegistries.ITEM) {
-                if (item instanceof AspectContainerItem container) {
+                if (item instanceof EssentiaContainerItem container) {
                     // Drives the empty/filled model swap
-                    ItemProperties.register(item, AspectContainerItem.FILLED_PROPERTY,
+                    ItemProperties.register(item, EssentiaContainerItem.FILLED_PROPERTY,
                             (stack, level, entity, seed) -> container.getContents(stack).isEmpty() ? 0f : 1f);
                 }
             }
@@ -49,7 +49,7 @@ public class SecretsoftheArcaneClient {
     @SubscribeEvent
     static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         for (Item item : BuiltInRegistries.ITEM) {
-            if (item instanceof AspectContainerItem container) {
+            if (item instanceof EssentiaContainerItem container) {
                 event.register((stack, tintIndex) ->
                         tintIndex == 0 ? (0xFF000000 | container.getLiquidColor(stack)) : -1, item);
             }
