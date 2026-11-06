@@ -1,17 +1,19 @@
 package net.jjcobb03.secretsofthearcane.api.item;
 
 import net.jjcobb03.secretsofthearcane.api.ArcaneApi;
-import net.jjcobb03.secretsofthearcane.api.aspect.AspectContents;
-import net.jjcobb03.secretsofthearcane.api.aspect.AspectStack;
-import net.jjcobb03.secretsofthearcane.api.aspect.IAspectContainer;
-import net.jjcobb03.secretsofthearcane.api.aspect.ItemAspectContainer;
-import net.jjcobb03.secretsofthearcane.api.aspect.SimpleAspectContainer;
+import net.jjcobb03.secretsofthearcane.api.aspect.*;
 import net.jjcobb03.secretsofthearcane.api.component.ArcaneDataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 
 import java.util.List;
 
@@ -83,5 +85,38 @@ public abstract class EssentiaContainerItem extends Item {
                     .append(Component.literal(" x" + aspectStack.amount())));
         }
         super.appendHoverText(stack, context, tooltip, flag);
+    }
+
+    // Handles transferring Essentia on right click
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        Level level = context.getLevel();
+        IAspectContainer target = level.getCapability(
+                AspectCapabilities.ASPECT_CONTAINER, context.getClickedPos(), context.getClickedFace());
+
+        if (target == null) {
+            return InteractionResult.PASS; // not a container block, let normal interaction continue
+        }
+
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        }
+
+        IAspectContainer self = getContainer(context.getItemInHand());
+        Player player = context.getPlayer();
+        // Shift right click results in extracting
+        // TODO: May need changed if this interferes with placing container blocks like jars on interactable blocks
+        boolean draw = player != null && player.isShiftKeyDown();
+
+        int moved = draw
+                ? AspectTransfer.transferAll(target, self)
+                : AspectTransfer.transferAll(self, target);
+
+        if (moved > 0) {
+            level.playSound(null, context.getClickedPos(),
+                    draw ? SoundEvents.BOTTLE_FILL : SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+        }
+
+        return InteractionResult.SUCCESS;
     }
 }

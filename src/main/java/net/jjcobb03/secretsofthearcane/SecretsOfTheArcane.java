@@ -5,6 +5,7 @@ import net.jjcobb03.secretsofthearcane.api.component.ArcaneDataComponents;
 import net.jjcobb03.secretsofthearcane.api.registry.ArcaneRegistries;
 import net.jjcobb03.secretsofthearcane.aspect.ModAspects;
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
+import net.jjcobb03.secretsofthearcane.block.entity.ModBlockEntities;
 import net.jjcobb03.secretsofthearcane.item.ModCreativeModeTabs;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
 import org.slf4j.Logger;
@@ -84,6 +85,8 @@ public class SecretsOfTheArcane {
         ModItems.register(modEventBus);
         // Call the Deferred Register for Blocks from ModBlocks
         ModBlocks.register(modEventBus);
+        // Block Entites from ModBlockEntities
+        ModBlockEntities.register(modEventBus);
 
         modEventBus.addListener(ArcaneRegistries::onNewRegistry);
         ModAspects.register(modEventBus);

@@ -47,10 +47,12 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.ROWAN_DOOR);
                                 output.accept(ModBlocks.ROWAN_TRAPDOOR);
                                 output.accept(ModBlocks.ROWAN_SAPLING);
-
+                                // Ores
                                 output.accept(ModBlocks.TERRA_ORE);
                                 output.accept(ModBlocks.TERRA_DEEPSLATE_ORE);
+                                // Essentia related content
                                 output.accept(ModItems.ESSENTIA_VIAL);
+                                output.accept(ModBlocks.ESSENTIA_JAR);
                                 output.accept(ModItems.VIS_CRYSTAL);
                             }).build());
 

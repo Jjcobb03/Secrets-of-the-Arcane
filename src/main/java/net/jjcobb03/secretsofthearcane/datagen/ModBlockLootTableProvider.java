@@ -59,7 +59,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.ROWAN_LEAVES.get(), block ->
                 createLeavesDrops(block, ModBlocks.ROWAN_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
-
+        // TODO: Ensure it retains its contents when picked up
+        dropSelf(ModBlocks.ESSENTIA_JAR.get());
 
         // Blocks that drop a different item from themselves (EX: Ores)
         // Drops a single crystal

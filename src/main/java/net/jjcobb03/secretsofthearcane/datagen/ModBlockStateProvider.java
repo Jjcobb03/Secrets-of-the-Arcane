@@ -64,8 +64,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         leavesBlock(ModBlocks.ROWAN_LEAVES);
         saplingBlock(ModBlocks.ROWAN_SAPLING);
 
+        // Temporary setup.
+        // TODO: give Essentia Jar a 3D model, and reflect its contents
+        simpleBlockWithItem(ModBlocks.ESSENTIA_JAR.get(),
+                models().cubeAll("essentia_jar", blockTexture(ModBlocks.ESSENTIA_JAR.get())).renderType("cutout"));
 
 
+
+        // TODO: See if the following code can be removed
         // Pillar Blocks
         // rotatedPillarBlockWithItem((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());
 //        logBlock((RotatedPillarBlock) ModBlocks.ROWAN_LOG.get());

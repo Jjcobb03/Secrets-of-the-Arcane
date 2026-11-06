@@ -3,7 +3,6 @@
 
   "item.secretsofthearcane.test_item": "Test Item",
   "item.secretsofthearcane.vis_crystal": "Vis Crystal",
-  "item.secretsofthearcane.essentia_vial": "Essentia Vial",
 
   "block.secretsofthearcane.rowan_log": "Rowan Log",
   "block.secretsofthearcane.stripped_rowan_log": "Stripped Rowan Log",
@@ -24,6 +23,9 @@
 
   "block.secretsofthearcane.terra_ore": "Terra Ore",
   "block.secretsofthearcane.terra_deepslate_ore": "Terra Deepslate Ore",
+
+  "item.secretsofthearcane.essentia_vial": "Essentia Vial",
+  "block.secretsofthearcane.essentia_jar": "Essentia Jar",
 
   "creativetab.secretsofthearcane.secrets_of_the_arcane": "Secrets of the Arcane",
   "creativetab.secretsofthearcane.secrets_of_the_arcane_2": "2nd Test Tab",
