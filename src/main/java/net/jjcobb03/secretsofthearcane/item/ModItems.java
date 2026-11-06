@@ -1,7 +1,7 @@
 package net.jjcobb03.secretsofthearcane.item;
 
 import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
-import net.jjcobb03.secretsofthearcane.item.custom.EssentiaContainerItem;
+import net.jjcobb03.secretsofthearcane.item.custom.EssentiaVialItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -20,7 +20,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> ESSENTIA_VIAL = ITEMS.register("essentia_vial",
-            () -> new EssentiaContainerItem(new Item.Properties()));
+            () -> new EssentiaVialItem(new Item.Properties().stacksTo(1)));
 
     // Register the Deferred Register to the mod event bus so items get registered
     public static void register(IEventBus eventBus) {

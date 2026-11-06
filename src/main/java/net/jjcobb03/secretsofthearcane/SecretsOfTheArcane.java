@@ -1,6 +1,7 @@
 package net.jjcobb03.secretsofthearcane;
 
 import net.jjcobb03.secretsofthearcane.api.ArcaneApi;
+import net.jjcobb03.secretsofthearcane.api.component.ArcaneDataComponents;
 import net.jjcobb03.secretsofthearcane.api.registry.ArcaneRegistries;
 import net.jjcobb03.secretsofthearcane.aspect.ModAspects;
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
@@ -86,6 +87,7 @@ public class SecretsOfTheArcane {
 
         modEventBus.addListener(ArcaneRegistries::onNewRegistry);
         ModAspects.register(modEventBus);
+        ArcaneDataComponents.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

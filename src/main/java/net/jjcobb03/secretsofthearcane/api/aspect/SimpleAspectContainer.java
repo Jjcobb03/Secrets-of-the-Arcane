@@ -38,6 +38,9 @@ public class SimpleAspectContainer implements IAspectContainer {
     // Used for saving/loading data
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    @Nullable
+    private Runnable changeListener;
+
     /**
      * Main constructor used by the factory constructors
      *
@@ -142,10 +145,14 @@ public class SimpleAspectContainer implements IAspectContainer {
 
         // If we are not simulating, perform the transfer
         if (!simulate && accepted > 0) {
+            // Insert the Aspects
             contents.merge(aspect, accepted, Integer::sum);
 
             // Update the total contents
             total += accepted;
+
+            // Flag that the container has changed
+            onChanged();
         }
 
         // Return how much can be accepted
@@ -169,6 +176,9 @@ public class SimpleAspectContainer implements IAspectContainer {
 
             // Update the total contents
             total -= removed;
+
+            // Flag that the container has changed
+            onChanged();
         }
 
         // Return how much can be extracted
@@ -231,5 +241,41 @@ public class SimpleAspectContainer implements IAspectContainer {
                         }
                     });
         }
+    }
+
+    // Called after every real (non-simulated) change. Don't hold onto the container expecting a stable listener
+    public void setChangeListener(@Nullable Runnable listener) {
+        this.changeListener = listener;
+    }
+
+    private void onChanged() {
+        if (changeListener != null) {
+            changeListener.run();
+        }
+    }
+
+    // Replaces the contents without firing the listener. Used when building a container from saved data
+    public void setContents(List<AspectStack> stacks) {
+        contents.clear();
+        total = 0;
+        for (AspectStack stack : stacks) {
+            if (stack.amount() > 0) {
+                contents.merge(stack.aspect(), stack.amount(), Integer::sum);
+                total += stack.amount();
+            }
+        }
+    }
+
+    // The most this container can hold in total, or UNLIMITED. Used for fill bars
+    public int getCapacity() {
+        long byAspects;
+        if (aspectLimits != null) {
+            byAspects = aspectLimits.values().stream().mapToLong(Integer::longValue).sum();
+        } else if (perAspectCapacity == UNLIMITED || maxAspectTypes == UNLIMITED) {
+            byAspects = UNLIMITED;
+        } else {
+            byAspects = (long) perAspectCapacity * maxAspectTypes;
+        }
+        return (int) Math.min(Math.min(byAspects, totalCapacity), UNLIMITED);
     }
 }

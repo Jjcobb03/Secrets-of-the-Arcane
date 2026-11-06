@@ -1,6 +1,7 @@
 package net.jjcobb03.secretsofthearcane.datagen;
 
 import net.jjcobb03.secretsofthearcane.SecretsOfTheArcane;
+import net.jjcobb03.secretsofthearcane.api.item.AspectContainerItem;
 import net.jjcobb03.secretsofthearcane.block.ModBlocks;
 import net.jjcobb03.secretsofthearcane.item.ModItems;
 import net.minecraft.data.PackOutput;
@@ -8,8 +9,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 /**
  * Helps provide the item model .json files
@@ -27,7 +30,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // Basic items with simple textures/models
         basicItem(ModItems.VIS_CRYSTAL.get());
-        basicItem(ModItems.ESSENTIA_VIAL.get());
 
         basicItem(ModBlocks.ROWAN_DOOR.asItem());
 
@@ -36,6 +38,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallItem(ModBlocks.ROWAN_WALL, ModBlocks.ROWAN_PLANKS);
 
         saplingItem(ModBlocks.ROWAN_SAPLING);
+
+        essentiaContainerItem(ModItems.ESSENTIA_VIAL);
 
     }
 
@@ -85,5 +89,27 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall",  ResourceLocation.fromNamespaceAndPath(SecretsOfTheArcane.MOD_ID,
                         "block/" + baseBlock.getId().getPath()));
+    }
+
+    /**
+     * Creates an empty model plus a "filled" model, swapped by the filled predicate.
+     * The filled model draws a tinted liquid layer (layer0, tint index 0) underneath the glass (layer1).
+     */
+    private void essentiaContainerItem(DeferredItem<?> item) {
+        String name = item.getId().getPath();
+        ModelFile generated = new ModelFile.UncheckedModelFile("item/generated");
+
+        ItemModelBuilder filled = getBuilder(name + "_filled")
+                .parent(generated)
+                .texture("layer0", modLoc("item/" + name + "_liquid"))
+                .texture("layer1", modLoc("item/" + name));
+
+        getBuilder(name)
+                .parent(generated)
+                .texture("layer0", modLoc("item/" + name))
+                .override()
+                .predicate(AspectContainerItem.FILLED_PROPERTY, 1.0f)
+                .model(filled)
+                .end();
     }
 }

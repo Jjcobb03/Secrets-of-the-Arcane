@@ -1,12 +1,13 @@
 package net.jjcobb03.secretsofthearcane.item.custom;
 
-import net.minecraft.world.item.Item;
+import net.jjcobb03.secretsofthearcane.api.item.AspectContainerItem;
 
-// For all items that store Essentia
-public class EssentiaContainerItem extends Item {
+// For all items that store Aspects
+public abstract class EssentiaContainerItem extends AspectContainerItem {
 
     // Constructor
-    public EssentiaContainerItem(Properties properties) {
+    protected EssentiaContainerItem(Properties properties) {
         super(properties);
     }
+
 }
