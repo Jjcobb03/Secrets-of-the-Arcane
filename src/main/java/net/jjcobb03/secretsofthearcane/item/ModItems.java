@@ -20,7 +20,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> ESSENTIA_VIAL = ITEMS.register("essentia_vial",
-            () -> new EssentiaVialItem(new Item.Properties().stacksTo(1)));
+            () -> new EssentiaVialItem(new Item.Properties().stacksTo(16)));
 
     // Register the Deferred Register to the mod event bus so items get registered
     public static void register(IEventBus eventBus) {

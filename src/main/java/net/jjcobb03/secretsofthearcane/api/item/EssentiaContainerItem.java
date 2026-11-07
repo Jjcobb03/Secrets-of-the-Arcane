@@ -93,20 +93,28 @@ public abstract class EssentiaContainerItem extends Item {
         Level level = context.getLevel();
         IAspectContainer target = level.getCapability(
                 AspectCapabilities.ASPECT_CONTAINER, context.getClickedPos(), context.getClickedFace());
-
         if (target == null) {
             return InteractionResult.PASS; // not a container block, let normal interaction continue
         }
-
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
-        IAspectContainer self = getContainer(context.getItemInHand());
         Player player = context.getPlayer();
-        // Shift right click results in extracting
-        // TODO: May need changed if this interferes with placing container blocks like jars on interactable blocks
-        boolean draw = player != null && player.isShiftKeyDown();
+        if (player == null) {
+            return InteractionResult.PASS;
+        }
+
+        ItemStack held = context.getItemInHand();
+        // Work on a single vial so a stack of several isn't all changed at once
+        ItemStack working = held.getCount() > 1 ? held.copyWithCount(1) : held;
+        IAspectContainer self = getContainer(working);
+
+        // Empty vials draw, filled vials pour. Sneaking flips it
+        boolean draw = getContents(working).isEmpty();
+        if (player.isShiftKeyDown()) {
+            draw = !draw;
+        }
 
         int moved = draw
                 ? AspectTransfer.transferAll(target, self)
@@ -115,8 +123,15 @@ public abstract class EssentiaContainerItem extends Item {
         if (moved > 0) {
             level.playSound(null, context.getClickedPos(),
                     draw ? SoundEvents.BOTTLE_FILL : SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-        }
 
+            // If we split one off, take it out of the stack and give the changed vial back
+            if (working != held) {
+                held.shrink(1);
+                if (!player.getInventory().add(working)) {
+                    player.drop(working, false);
+                }
+            }
+        }
         return InteractionResult.SUCCESS;
     }
 }
